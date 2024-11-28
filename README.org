@@ -17,8 +17,8 @@
 #+end_src
 
 
-**默认用户: btpanel**
-**默认密码: btpaneldocker**
+*默认用户: btpanel*
+*默认密码: btpaneldocker*
 
 #+begin_quote
 注意事项!!!
@@ -26,6 +26,8 @@
 应用启动后，不要直接使用默认推荐的集成包LNMP/LAMP
 
 宝塔的脚本存在问题，可能会遇到无法正常安装的情况
+
+请直接在软件商店，单独安装需要使用的软件
 #+end_quote
 
 
