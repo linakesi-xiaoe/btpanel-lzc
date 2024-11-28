@@ -1,0 +1,41 @@
+lzc-sdk-version: 0.1
+name: 宝塔面板
+package: iamxiaoe.lzcapp.btpanel
+version: 0.0.2
+description:
+license: https://choosealicense.com/licenses/mit/
+homepage: https://www.bt.cn/
+author: baota
+
+unsupported_platforms: # 不支持的平台
+  - android
+  - ios
+
+application:
+  subdomain: btpanel
+  routes:
+    - /=http://baota.iamxiaoe.lzcapp.btpanel.lzcapp:8888 #多实例应用会自动在route里加上uid
+  ingress:
+    - protocol: tcp
+      port: 22 # ssh
+      service: baota
+    - protocol: tcp
+      port: 21 # ftp
+      service: baota
+    - protocol: tcp
+      port: 3306 # mysql
+      service: baota
+    - protocol: tcp
+      port: 888 # phpmyadmin
+      service: baota
+  handlers:
+    error_page_templates: # hack first launch, always 404, we need redirect to /btpanel route.
+      404: /lzcapp/pkg/content/404.html.tpl
+      502: /lzcapp/pkg/content/404.html.tpl
+services:
+  baota:
+    image: registry.lazycat.cloud/btpanel/baota:0.0.1
+    binds:
+      - /lzcapp/run/mnt/home/btpanel/www/wwwroot:/www/wwwroot
+      - /lzcapp/run/mnt/home/btpanel/www/server/data:/www/server/data
+      - /lzcapp/run/mnt/home/btpanel/www/server/panel/vhost:/www/server/panel/vhost

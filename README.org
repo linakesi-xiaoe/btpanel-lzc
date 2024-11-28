@@ -1,0 +1,37 @@
+* 宝塔面板-lzc移植版本
+
+源docker镜像 https://hub.docker.com/r/btpanel/baota
+
+** 使用教程
+
+使用 [[https://www.npmjs.com/package/@lazycatcloud/lzc-cli][lzc-cli]] 工具进行打包
+
+#+begin_src shell
+  lzc-cli project build
+#+end_src
+
+使用lzc-cli工具进行安装
+
+#+begin_src shell
+  lzc-cli app install iamxiaoe.lzcapp.btpanel-xxx.lpk
+#+end_src
+
+
+**默认用户: btpanel**
+**默认密码: btpaneldocker**
+
+#+begin_quote
+注意事项!!!
+
+应用启动后，不要直接使用默认推荐的集成包LNMP/LAMP
+
+宝塔的脚本存在问题，可能会遇到无法正常安装的情况
+#+end_quote
+
+
+
+** 更新日志
+
+- <2024-11-28 四>v0.0.2 发布
+   + 修复了应用重启后数据丢失的问题
+   + 增加了git仓库，补充了基本使用文档
